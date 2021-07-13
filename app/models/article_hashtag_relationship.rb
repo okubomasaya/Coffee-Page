@@ -1,0 +1,2 @@
+class ArticleHashtagRelationship < ApplicationRecord
+end

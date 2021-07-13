@@ -1,0 +1,2 @@
+class ArticleHashtagRelationsController < ApplicationController
+end
