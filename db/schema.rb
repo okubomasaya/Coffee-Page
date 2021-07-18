@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_07_14_123342) do
 
   create_table "article_hashtag_relationships", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "hashtag_id"
+    t.bigint "article_id"
+    t.bigint "hashtag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_hashtag_relationships_on_article_id"

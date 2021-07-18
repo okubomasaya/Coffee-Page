@@ -1,17 +1,27 @@
-<table class='table table-hover table-inverse'>
-  <div class="container">
-    <div class="row my-3">
-      <tbody>
-        <% @articles.each do |article| %>
-          <div>
-            <%= attachment_image_tag article, :image %>
-            <p>投稿ユーザー画像：<%= article.image %></p>
-            <p>タイトル：<%= article.title %></p>
-            <p>本文：<%= article.body %></p>
-            <!--<p>ユーザーネーム：%= @user.name %></p>-->
-          </div>
-        <% end %>
-      </tbody>
+<div class="card-list-containar py-5">
+  <% @articles.each do |article| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <!--%= link_to article_path(image.id) do %>-->
+      <%= attachment_image_tag article, :image, class:"card-img-top"; %>
+    <!--% end %>-->
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= attachment_image_tag article.user, :profile_image_id, :fill, 60, 60, fallback: "no-image-icon.jpg", class:"mt-3 rounded-circle"; %>
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+            <!--%= link_to(article_path(image.id), class:"text-dark") do %>-->
+              <strong><i class="far fa-flag"></i><span> <%= article.title %></span></strong>
+            <!--% end %>-->
+          </P>
+          <p class="card-text">本文：<%= article.body %></p>
+          <span><i class="fas fa-user"></i> By <%= article.user.name %> ｜ </span>
+          <!--<span>%= link_to "#{post_image.post_comments.count} いいね", post_image_path(post_image.id), class:"text-dark" %></span>-->
+        </div>
+      </div>
     </div>
   </div>
-</table>
+  <% end %>
+  <!--%= paginate post_images %>-->
+</div>
