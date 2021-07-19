@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    @book = Book.new
   end
   
   def edit
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      redirect_to user_path(@user), notice: "更新しました！"
     else
       render "edit"
     end
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :profile, :profile_image)
   end
 
   def ensure_correct_user
