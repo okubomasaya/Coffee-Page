@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
+# 　before_action :authenticate_user!
+#   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
 
   def index
-    @articles = Article.allcd
+    @articles = Article.all
   end
 
   def show
@@ -13,13 +16,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
-      redirect_to articles_path(@article), notice: "You have created book successfully."
+      redirect_to articles_path(@article), notice: "投稿しました！"
     else
       @articles = Article.all
       render 'index'
@@ -27,8 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to articles_path(@article), notice: "You have updated book successfully."
+      redirect_to articles_path(@article), notice: "更新しました！"
     else
       render "edit"
     end

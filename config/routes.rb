@@ -7,7 +7,13 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do 
+    resource :relationships, only: [:create, :destroy]
+    get 'followed' => 'relationships#followed', as: 'followed'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
+  
+  
   get '/article/hashtag/:name', to: "articles#hashtag"
   
 end
