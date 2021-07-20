@@ -17,7 +17,7 @@
           </P>
           <p class="card-text">本文：<%= article.body.truncate(30) %></p>
           <span><i class="fas fa-user"></i> By <%= article.user.name %> ｜ </span>
-          <!--<span>%= link_to "#{post_image.post_comments.count} いいね", post_image_path(post_image.id), class:"text-dark" %></span>-->
+          <span><i class ="favorite_btn_<%= article.id %>"><%= render "favorites/favorite-btn", article: article %></i></span>
         </div>
       </div>
     </div>
