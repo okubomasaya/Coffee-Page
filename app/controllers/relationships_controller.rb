@@ -1,15 +1,16 @@
 class RelationshipsController < ApplicationController
   
+  
   # フォローする
-  def follow
-    current_user.follow(params[:id])
-    redirect_to users_path
+  def create
+      @user = User.find(params[:followed_id])
+      current_user.follow(@user)
   end
 
   # アンフォローする
-  def unfollow
-    current_user.unfollow(params[:id])
-    redirect_to users_path
+  def destroy
+      @user = User.find(params[:id])
+      current_user.unfollow(@user)
   end
   
 end

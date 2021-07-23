@@ -1,0 +1,10 @@
+<h2>ハッシュタグ #<%= @tag.hashname %></h2>
+  <ul>
+    <% @articles.each do |article| %>
+      <li>
+        <%= link_to article_path(article.id) do %>
+          <%= image_tag article.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), if ar.image.attached? %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

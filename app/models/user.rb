@@ -9,26 +9,27 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
   
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-  validates :introduction, length: { maximum: 200 }
+  validates :profile, length: { maximum: 200 }
   
-  has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
-  has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-  has_many :following_user, through: :follower, source: :followed
-  has_many :follower_user, through: :followed, source: :follower
+  has_many :followed_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
+  has_many :followed, through: :followed_relationships
+  has_many :follower_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships
   
-  # ユーザーをフォローするメソッド
-  def follow(user_id)
-    follower.create(followed_id: user_id)
+ #フォローしているかを確認するメソッド
+  def followed?(user)
+    followed_relationships.find_by(followed_id: user.id)
   end
 
-  # ユーザーをアンフォローするメソッド
-  def unfollow(user_id)
-    follower.find_by(followed_id: user_id).destroy
+  #フォローするときのメソッド
+  def follow(user)
+    followed_relationships.create!(followed_id: user.id)
   end
 
-  # フォローしているかを確認するメソッド
-  def following?(user)
-    following_user.include?(user)
+  #フォローを外すときのメソッド
+  def unfollow(user)
+    followed_relationships.find_by(followed_id: user.id).destroy
   end
+
   
 end

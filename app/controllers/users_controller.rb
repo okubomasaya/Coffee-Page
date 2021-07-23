@@ -1,22 +1,22 @@
 class UsersController < ApplicationController
-  
+
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
+
   def show
     @user = User.find(params[:id])
     @articles = @user.articles
     # @article = Article.new
   end
-  
+
   def index
     @users = User.all
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -25,19 +25,21 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
-  # 自分がフォローしているユーザー一覧
-  def following
-    @user = User.find(params[:user_id])
-    @followings = @user.following_user.where.not(id: current_user.id)
+
+  def followed
+    #@userがフォローしているユーザー
+    @user  = User.find(params[:id])
+    @users = @user.followed
+    render template: "relationships/followed"
   end
 
-  # 自分をフォローしているユーザー一覧
-  def follower
-    @user = User.find(params[:user_id])
-    @followers = @user.follower_user.where.not(id: current_user.id)
+  def followers
+    #@userをフォローしているユーザー
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render template: "relationships/follower"
   end
-  
+
   private
 
   def user_params
@@ -50,5 +52,5 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-  
+
 end

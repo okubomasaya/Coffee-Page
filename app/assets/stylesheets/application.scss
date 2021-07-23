@@ -18,9 +18,24 @@
  @import 'font-awesome';
 
 
-
-.navbar-brand {
-width: 280px;
-height: 60px;
-max-height: 60px;
-}
+.header-logo {
+   font-family: 'Snell Roundhand',sans-serif;
+   font-size: 30px;
+   margin-left: 35px;
+ }
+ .header-logo:hover {
+   font-size: 35px;
+ }
+ .logo-navbar {
+  height: 80px;
+ }
+ img.logo-navbar {
+  width: 4rem ;
+  height: 4rem ;
+ }
+ .navbar {
+  background-color: white;
+ }
+ nav {
+  height: 80px;
+ }
