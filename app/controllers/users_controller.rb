@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @articles = @user.articles
-    # @article = Article.new
   end
 
   def index
@@ -24,20 +23,6 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
-  end
-
-  def followed
-    #@userがフォローしているユーザー
-    @user  = User.find(params[:id])
-    @users = @user.followed
-    render template: "relationships/followed"
-  end
-
-  def followers
-    #@userをフォローしているユーザー
-    @user  = User.find(params[:id])
-    @users = @user.followers
-    render template: "relationships/follower"
   end
 
   private

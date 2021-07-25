@@ -18,6 +18,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= @article.title %></h5>
           <p class="card-text"><%= simple_format(@article.body) %></p>
+          <%= render_with_hashtags(@article.body) %>
           <p class="card-text"><small class="text-muted">いいね数: <%= @article.favorites.count %></small></p>
           <% if @article.user == current_user %>
             <i><%= link_to '編集', edit_article_path(@article), class: "btn btn-sm btn-success edit_book_#{@article.id}" %></i>

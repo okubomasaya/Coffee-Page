@@ -8,28 +8,43 @@ class User < ApplicationRecord
 	has_many :favorites, dependent: :destroy
   attachment :profile_image, destroy: false
   
+  
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :profile, length: { maximum: 200 }
   
-  has_many :followed_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
-  has_many :followed, through: :followed_relationships
-  has_many :follower_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
-  has_many :followers, through: :follower_relationships
+  # 自分がフォローされる（被フォロー）側の関係性
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  # 自分がフォローする（与フォロー）側の関係性
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  # 被フォロー関係を通じて参照→自分をフォローしている人
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  # 与フォロー関係を通じて参照→自分がフォローしている人
+  has_many :followings, through: :relationships, source: :followed
   
- #フォローしているかを確認するメソッド
-  def followed?(user)
-    followed_relationships.find_by(followed_id: user.id)
+  #createとsave
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
   end
-
-  #フォローするときのメソッド
-  def follow(user)
-    followed_relationships.create!(followed_id: user.id)
+  #フォロー外すメソッド
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
   end
-
-  #フォローを外すときのメソッド
-  def unfollow(user)
-    followed_relationships.find_by(followed_id: user.id).destroy
+  #フォローしているか確認するメソッド
+  def following?(user)
+    followings.include?(user)
   end
-
   
+  #検索条件メソッド
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(name: content)
+    elsif method == 'forward'
+      User.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      User.where('name LIKE ?', '%' + content)
+    else
+      User.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+
 end

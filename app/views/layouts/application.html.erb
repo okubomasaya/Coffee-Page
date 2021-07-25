@@ -11,27 +11,24 @@
   </head>
 
   <body>
-    
-    <% if current_page?(root_path) %>
-    <div id="splash">
-      <div id="splash_logo">
-      <!--<img src="assets/logo.png" alt="" class="fadeUp">-->
-      </div>
-    </div>
-    <% end %>
-    <%= render 'layouts/header' %>
+    <main>
+      <!--% if current_page?(root_path) %>-->
+      <!--% end %>-->
+      <!--% if user_signed_in? %>-->
+         <%= render 'layouts/search' %>
+      <!--% end %>-->
+        
+      <p id="notice"><%= notice %></p>
       <div id"wrapper">
         <% if flash[:notice] %>
           <div class="flash">
           <%= flash[:notice] %>
           </div>
         <% end %>
-        
-        <%= yield %>
       </div>
-    <!--% unless current_page?(about_path) %>-->
-    <!--%= render 'layouts/footer' %>-->
-    <!--% end %>-->
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
   
   

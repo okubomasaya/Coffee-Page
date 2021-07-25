@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_07_14_123342) do
 
   create_table "article_hashtag_relationships", force: :cascade do |t|
-    t.bigint "article"
-    t.bigint "hashtag"
+    t.bigint "article_id"
+    t.bigint "hashtag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article"], name: "index_article_hashtag_relationships_on_article"
-    t.index ["hashtag"], name: "index_article_hashtag_relationships_on_hashtag"
+    t.index ["article_id"], name: "index_article_hashtag_relationships_on_article_id"
+    t.index ["hashtag_id"], name: "index_article_hashtag_relationships_on_hashtag_id"
   end
 
   create_table "articles", force: :cascade do |t|

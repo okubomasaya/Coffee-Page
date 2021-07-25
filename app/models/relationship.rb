@@ -1,6 +1,6 @@
 class Relationship < ApplicationRecord
 
-  #自分をフォローしているユーザー
+  #自分をフォローされているユーザー
   belongs_to :follower, class_name: "User"
   #自分がフォローしているユーザー
   belongs_to :followed, class_name: "User"
