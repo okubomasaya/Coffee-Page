@@ -2,45 +2,14 @@
 <!--   %= select_tag("search", options_for_select([['---並べ替え選択---', ''], ['最新の投稿', 'newpost'], ['古い投稿', 'oldpost']])) %>-->
 <!--   %= submit_tag '並べ替える'  %>-->
 <!-- % end %>-->
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @articles.each do |article| %>
-    <div class="card w-50 h-100  mt-4 shadow-lg">
-      <%= link_to article_path(article.id) do %>
-        <div class="img">
-          <%= attachment_image_tag article, :image, fallback:"no-image.jpg", class:"card-img-top"; %>
-        </div>
-      <% end %>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-3">
-            <%= attachment_image_tag article.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.jpg", class:"mt-3 rounded-circle"; %>
-          </div>
-          <div class="col-9">
-            <p class="card-title">
-              <%= link_to(article_path(article.id), class:"text-dark") do %>
-                <strong><i class="far fa-flag"></i><span> <%= article.title %></span></strong>
-              <% end %>
-            </P>
-            <p class="card-text">本文：<%= article.body.truncate(30) %></p>
-            <span><i class="fas fa-user"></i> By <%=link_to article.user.name %></span>
-            <span><i class ="favorite_btn_<%= article.id %>"><%= render "favorites/favorite-btn", article: article %></i></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-  <!--%= paginate post_images %>-->
-
-
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @articles.each do |article| %>
+  <% articles.each do |article| %>
   <div class="col">
     <div class="card h-100">
-        <div class="img">
+        <div class="bd-placeholder-img card-img-top" >
           <%= link_to article_path(article.id) do %>
-          <%= attachment_image_tag article, :image, fallback:"no-image.jpg", class:"card-img-top"; %>
+           <%= attachment_image_tag article, :image, fallback:"no-image.jpg", class:"card-img-top"; %>
           <% end %>
         </div>
         <div class="card-body">
@@ -61,3 +30,4 @@
   <% end %>
 </div>
 
+<!--%= paginate @page %>-->

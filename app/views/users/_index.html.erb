@@ -1,19 +1,12 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class='table table-hover'>
   <tbody>
     <% users.each do |user| %>
 
       <tr>
-        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 70, 70, fallback: "no-image-icon.jpg", class: "ml-3 rounded-circle") %></td>
         <td><%= link_to user.name, user_path(user), class: "user_#{user.id}"  %></td>
-        <td>フォロー数: <span id="following_count"><%= user.followings.count %></span></td>
-        <td>フォロワー数: <span id="follower_count"><%= user.followers.count %></span></td>
+        <td>フォロー: <span id="following_count"><%= link_to user.followings.count, user_followings_path(user) %></span></td>
+        <td>フォロワー: <span id="follower_count"><%= link_to user.followers.count, user_followers_path(user) %></span></td>
         <!--span id="follower_count"は非同期通信用のid-->
         <td>
           <% if user != current_user %>

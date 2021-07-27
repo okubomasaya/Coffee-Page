@@ -1,3 +1,7 @@
-<!--% @tags.each do |tag| %>-->
-<!--    %= tag.hashname %>-->
-<!--% end %>-->
+<table class="table">
+  <div class= "hash-name">
+    <% @tags.each do |tag| %>
+       <p><%= render_with_hashtags("##{tag.hashname}") %></p>
+    <% end %>
+  </div>
+</table>

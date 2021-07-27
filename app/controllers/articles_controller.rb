@@ -1,14 +1,16 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, without: [:index]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all
-    @popular = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(20).pluck(:article_id))
+    @articles = Article.all.order(created_at: :desc)
+    # @page = Article.all.page(params[:page]).per(6)
+    @tags = Hashtag.select('id', 'hashname').order('hashname ASC')
   end
 
   def show
     @article = Article.find(params[:id])
+    @tag = Hashtag.find_by(hashname: params[:name])
   end
 
   def new
@@ -22,15 +24,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
-    # hashtags = @article.body.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-    # hashtags.uniq.map do |hashtag|
-    #   @article.body.delete(hashtag)
-    # end
     if @article.save
       redirect_to articles_path(@article), notice: "投稿しました！"
     else
-      @articles = Article.all
-      render 'index'
+      render 'new'
     end
   end
 
@@ -50,13 +47,13 @@ class ArticlesController < ApplicationController
 
   def hashtag
     @user = current_user
-    # @tag = Hashtag.find_by(hashname: params[:name])
+    @tag = Hashtag.find_by(hashname: params[:name])
     if @tag.present?
       @articles = @tag.articles
       @tags = Hashtag.select('id', 'hashname').order('hashname ASC')
     else
       redirect_to request.referer
-      #ページ遷移
+      #ページ遷移しない
     end
   end
 

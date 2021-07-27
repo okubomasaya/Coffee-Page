@@ -1,7 +1,7 @@
 <div class="search-form">
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.text_field :content, :placeholder => "作者か記事で検索" %>
-    <%= f.select :model, options_for_select({ "ユーザー" => "user", "記事" => "book" }) %>
+    <%= f.select :model, options_for_select({ "ユーザー" => "user", "記事" => "article" }) %>
     <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
     <%= f.submit '検索' %>
   <% end %>
