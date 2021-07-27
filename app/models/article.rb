@@ -7,11 +7,11 @@ class Article < ApplicationRecord
    validates :title, presence: true
    validates :body, presence: true
 
-   #ログイン中のユーザーがいいねしているかしていないかを判断」するメソッド
-   def favorited_by?(user)
-		favorites.where(user_id: user.id).exists?
-	 end
-	 
+   #ログイン中のユーザーがいいねしているかしていないかを判断するメソッド
+  def favorited_by?(user)
+	  favorites.where(user_id: user.id).exists?
+	end
+
 	 #検索条件メソッド
   def self.search_for(content, method)
     if method == 'perfect'

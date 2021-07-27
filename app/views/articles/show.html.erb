@@ -9,7 +9,7 @@
       <!--Facebook-->
     </div>
     <div class='col-md-8 offset-md-1'>
-  		<div class="card mb-3">
+  		<div class="card-mb-3 mt-3">
         <div class="card-image">
   		      <%= link_to article_path(@article.id) do %>
               <%= attachment_image_tag @article, :image, class:"card-img-top"; %>
@@ -17,8 +17,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= @article.title %></h5>
-          <p class="card-text"><%= simple_format(@article.body) %></p>
-          <%= render_with_hashtags(@article.body) %>
+          <p class="card-text"><%= render_with_hashtags( simple_format(@article.body)) %></p>
           <p class="card-text"><small class="text-muted">いいね数: <%= @article.favorites.count %></small></p>
           <% if @article.user == current_user %>
             <i><%= link_to '編集', edit_article_path(@article), class: "btn btn-sm btn-success edit_book_#{@article.id}" %></i>

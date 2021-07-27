@@ -12,5 +12,5 @@ before_action :authenticate_user!
 			@records = Article.search_for(@content, @method)
 		end
 	end
-  
+
 end

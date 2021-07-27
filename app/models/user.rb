@@ -7,11 +7,11 @@ class User < ApplicationRecord
   has_many :articles
 	has_many :favorites, dependent: :destroy
   attachment :profile_image, destroy: false
-  
-  
+
+
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :profile, length: { maximum: 200 }
-  
+
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   # 自分がフォローする（与フォロー）側の関係性
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
-  
+
   #createとsave
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   #検索条件メソッド
   def self.search_for(content, method)
     if method == 'perfect'

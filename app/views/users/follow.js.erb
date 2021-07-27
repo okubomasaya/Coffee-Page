@@ -1,3 +1,6 @@
+<!--フォロー済み時解除ボタンへの書き換え-->
 $("#follow-button_<%= @user.id %>").html("<%= j(render 'users/follow-button', user: @user) %>");
+<!--フォロー数の書き換え-->
 $("#follower-count_<%= @user.id %>").html('<%= link_to "#{ @user.followed.count }フォロワー", users_follower_path(@user) %>');
+<!--フォロワー数の書き換え-->
 $("#following-count_<%= current_user.id %>").html('<%= link_to "#{ current_user.follower.count }フォロー中", users_following_path(@user) %>');
