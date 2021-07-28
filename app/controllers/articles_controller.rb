@@ -64,6 +64,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :image, :body,)
   end
 
+
   def ensure_correct_user
     @article = Article.find(params[:id])
     unless @article.user == current_user
