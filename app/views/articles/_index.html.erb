@@ -1,7 +1,3 @@
-<!--%= form_tag({controller:"articles",action:"index"}, method: :get) do %>-->
-<!--   %= select_tag("search", options_for_select([['---並べ替え選択---', ''], ['最新の投稿', 'newpost'], ['古い投稿', 'oldpost']])) %>-->
-<!--   %= submit_tag '並べ替える'  %>-->
-<!-- % end %>-->
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% articles.each do |article| %>
     <div class="col">
@@ -18,7 +14,7 @@
               <% end %>
             </h5>
             <p class="card-text">記事：<%= article.body.truncate(30) %>.</p>
-            <span><i class="fas fa-user"></i> By <%=link_to article.user.name %></span>
+            <span><i class="fas fa-user"></i>by<%= article.user.name %></span>
             <span><i class ="favorite_btn_<%= article.id %>"><%= render "favorites/favorite-btn", article: article %></i></span>
           </div>
           <div class="card-footer">
