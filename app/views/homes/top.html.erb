@@ -7,7 +7,7 @@
       <p>一時の間をここでゆっくりおたのしみください</p>
     </div>
   </div>
-  
+
   <h2 class="d-flex justify-content-center">新着記事</h2>
   <div class="row justify-content-center align-items-center">
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -22,7 +22,7 @@
           <div class="card-body">
             <h5 class="card-title">
               <%= link_to(article_path(article.id), class:"text-dark") do %>
-                <strong><i class="far fa-flag"></i><span> <%= article.title %></span></strong>
+                <strong><i class="fas fa-book"></i><span> <%= article.title %></span></strong>
               <% end %>
             </h5>
             <p class="card-text">記事：<%= article.body.truncate(100) %>.</p>

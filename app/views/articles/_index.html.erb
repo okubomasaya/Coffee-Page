@@ -10,7 +10,7 @@
           <div class="card-body">
             <h5 class="card-title">
               <%= link_to(article_path(article.id), class:"text-dark") do %>
-                <strong><i class="far fa-flag"></i><span> <%= article.title %></span></strong>
+                <strong><i class="fas fa-book"></i><span> <%= article.title %></span></strong>
               <% end %>
             </h5>
             <p class="card-text">記事：<%= article.body.truncate(30) %>.</p>
