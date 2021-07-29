@@ -1,5 +1,5 @@
 # Coffee Page
-<img width="1243" alt="top" src="https://user-images.githubusercontent.com/81939558/127427653-c9cee7f9-b6f7-465b-a311-2a3e635b0698.png">
+<img width="1280" alt="CoffeePage" src="https://user-images.githubusercontent.com/81939558/127442358-5b69dfe2-ba7c-4a3b-abc5-9e50eebc3651.png">
 
 
 ## サイト概要
@@ -20,8 +20,7 @@
 ## 設計書
 ER図　https://drive.google.com/file/d/15WdcrrG0nOKf_H39uBxgFcxvU-ee373S/view?usp=sharing
 アプリケーション設計書 
-データベース設計書 
-UIフロー図　
+データベース設計書 https://drive.google.com/file/d/1JZgvOQYrAD4bWfWD47S0uG4LdJNzrrv3/view?usp=sharing
 
 
 ## チャレンジ要素一覧

@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to articles_path(@article), notice: "更新しました！"
+      redirect_to article_path(@article), notice: "更新しました！"
     else
       render "edit"
     end
