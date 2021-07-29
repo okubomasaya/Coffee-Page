@@ -1,7 +1,6 @@
 <table class='table table-hover table-borderless'>
   <tbody>
     <% users.each do |user| %>
-
       <tr>
         <td><%= attachment_image_tag(user, :profile_image, :fill, 70, 70, fallback: "no-image-icon.jpg", class: "ml-3 rounded-circle") %></td>
         <td><%= link_to user.name, user_path(user), class: "user_#{user.id}"  %></td>

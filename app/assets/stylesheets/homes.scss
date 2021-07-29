@@ -2,3 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// /* 大枠ボックス */
+// .layer{
+//   position: relative;
+//   margin: 0 auto;
+//   text-align: center;
+// }
+
+// /* 背景画像の読み込み */
+// .layer-bg{
+//   background: image: url("about.png") no-repeat 0 0;
+//   background-size: 100%;
+// }
+
+// /* 重ねるボックスの設定 */
+// .layer-in{
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   margin: auto;
+// }
+
+// /* 重ねる文字の基本設定 */
+// .layer-txt{
+//   text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+//   color: #fff;
+//   letter-spacing: 0.4rem;
+// }
+
+// /* SP向けの設定 */
+// @media screen and (max-width: 600px) {
+//   .layer-bg{
+//     height: 200px;
+//   }
+//   .layer-in{
+//     width: 300px;
+//     height: 70px;
+//   }
+//   .layer-txt{
+//   font-size: 1.4rem;
+//   }
+// }
+
+// /* PC向けの設定 */
+// @media screen and (min-width: 601px) {
+//   .layer-bg{
+//     height: 400px;
+//   }
+//   .layer-in{
+//     width: 400px;
+//     height: 100px;
+//   }
+//   .layer-txt{
+//     font-size: 2rem;
+//   }
+// }

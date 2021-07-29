@@ -1,24 +1,35 @@
-# README
+# Coffee Page
+<img width="1243" alt="top" src="https://user-images.githubusercontent.com/81939558/127427653-c9cee7f9-b6f7-465b-a311-2a3e635b0698.png">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## サイト概要
+コーヒーマニアのためのコーヒーを熱く語るためだけの言語化SNS。
 
-* Ruby version
+### サイトテーマ
+自由に自分の考えを言語化し発信するためのサイトで、根底としてコーヒー愛をどうしても綴りたい、表現したい、そんなコーヒーラバー育成プラットフォーム。コーヒーについて語らうにはこのプラットフォームという位置づけを目指す。
 
-* System dependencies
+### テーマを選んだ理由
+昨今のSNSでは情報が溢れ、負の側面である誹謗中傷が目立つようになってる。根本的な理由として思考が浅い状態で発言（コメント）してしまうことに原因があるのではないかと考える。このサイトでは基本的に自分の思考を熟考し理解を深め言語化することを目的とし、表現者あるいは言語化能力を培うプラットフォームを目指す。
 
-* Configuration
+### ターゲットユーザ
+コーヒーラバーで主に20代〜50代と幅広くターゲットとする。
 
-* Database creation
+### 主な利用シーン
+コーヒー豆やコーヒーガジェット、販売店、喫茶店を利用したレビューや、思想について語らう際に用いる。
 
-* Database initialization
+## 設計書
+ER図　https://drive.google.com/file/d/15WdcrrG0nOKf_H39uBxgFcxvU-ee373S/view?usp=sharing
+アプリケーション設計書 
+データベース設計書 
+UIフロー図　
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/13wSfg4SSkbaBuAKJIdkvzqcPKwzPlm3bYFXTKUImfiM/edit?usp=sharing
 
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
