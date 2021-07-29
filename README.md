@@ -1,5 +1,6 @@
 # Coffee Page
-<img width="1280" alt="CoffeePage" src="https://user-images.githubusercontent.com/81939558/127442358-5b69dfe2-ba7c-4a3b-abc5-9e50eebc3651.png">
+![CoffeePage](https://user-images.githubusercontent.com/81939558/127485335-35422189-ff79-460a-84fc-dcaad11bfa00.png)
+
 
 
 ## サイト概要
@@ -19,12 +20,12 @@
 
 ## 設計書
 ER図　https://drive.google.com/file/d/15WdcrrG0nOKf_H39uBxgFcxvU-ee373S/view?usp=sharing
-アプリケーション設計書 
+アプリケーション設計書
 データベース設計書 https://drive.google.com/file/d/1JZgvOQYrAD4bWfWD47S0uG4LdJNzrrv3/view?usp=sharing
 
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/13wSfg4SSkbaBuAKJIdkvzqcPKwzPlm3bYFXTKUImfiM/edit?usp=sharing
+
 
 ## 開発環境
 - OS：Linux(CentOS)
