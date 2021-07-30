@@ -25,7 +25,7 @@ ER図　https://drive.google.com/file/d/15WdcrrG0nOKf_H39uBxgFcxvU-ee373S/view?u
 
 
 ## チャレンジ要素一覧
-
+https://docs.google.com/spreadsheets/d/13wSfg4SSkbaBuAKJIdkvzqcPKwzPlm3bYFXTKUImfiM/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
