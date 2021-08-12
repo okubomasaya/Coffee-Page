@@ -12,8 +12,8 @@
             <% end %>
         </div>
         <div class="card-body">
-          <h5 class="card-title far fa-flag"><%= @article.title %></h5>
-          <p class="card-text"><%= render_with_hashtags( simple_format(@article.body)) %></p>
+          <h5 class="card-title far fa-flag"><%== @article.title %></h5>
+          <p class="card-text"><%== render_with_hashtags(@article.body) %></p>
           <p class="card-text"><small class="text-muted">いいね数: <%= @article.favorites.count %></small></p>
           <% if @article.user == current_user %>
             <i><%= link_to '編集', edit_article_path(@article), class: "btn btn-sm btn-success edit_book_#{@article.id}" %></i>

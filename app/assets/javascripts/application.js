@@ -18,3 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require summernote/summernote-bs4.min
+//= require summernote-init

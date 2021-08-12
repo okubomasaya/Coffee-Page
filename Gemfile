@@ -81,3 +81,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'summernote-rails', '~> 0.8.10.0'
