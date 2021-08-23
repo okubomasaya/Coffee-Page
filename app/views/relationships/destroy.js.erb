@@ -1,3 +1,7 @@
+<!--アンフォロー状態でフォローへ書き換え-->
 $("#follow_button_<%= @user.id %>").html("<%= j(render("relationships/follow-button", user: @user)) %>");
-$("#following_count").html("<%= @user.followings.count %>");
-$("#follower_count").html("<%= @user.followers.count %>");
+<!--フォロー数の書き換え-->
+$("#following_count_<%= @user.id %>").html('<%= link_to @user.followings.count, user_followings_path(@user) %>');
+<!--フォロワー数の書き換え-->
+$("#follower_count_<%= @user.id %>").html('<%= link_to @user.followers.count, user_followers_path(@user) %>');
+

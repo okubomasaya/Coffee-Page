@@ -3,10 +3,10 @@
     <% users.each do |user| %>
 
       <tr>
-        <td><%= attachment_image_tag(user, :profile_image, :fill, 70, 70, fallback: "no-image-icon.jpg", class: "ml-3 rounded-circle") %></td>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg", class: "ml-3 rounded-circle") %></td>
         <td><%= link_to user.name, user_path(user), class: "user_#{user.id}"  %></td>
-        <td>フォロー: <span id="following_count"><%= link_to user.followings.count, user_followings_path(user) %></span></td>
-        <td>フォロワー: <span id="follower_count"><%= link_to user.followers.count, user_followers_path(user) %></span></td>
+        <td>フォロー: <span id="following_count_<%= user.id %>"><%= link_to user.followings.count, user_followings_path(user) %></span></td>
+        <td>フォロワー: <span id="follower_count_<%= user.id %>"><%= link_to user.followers.count, user_followers_path(user) %></span></td>
         <!--span id="follower_count"は非同期通信用のid-->
         <td>
           <% if user != current_user %>
