@@ -16,7 +16,7 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
+
  @import "bootstrap";
  @import "summernote-bs4";
 
@@ -59,6 +59,6 @@ footer{
 }
 
 // ページ表示部分を非表示
-//  nav.pagination {
-//   display: none;
-// }
+ nav.pagination {
+  display: none;
+}
