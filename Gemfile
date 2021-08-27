@@ -50,6 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
+  gem 'rubocop-airbnb'
 end
 
 group :test do
@@ -71,15 +72,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
-
-
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
 gem 'summernote-rails', '~> 0.8.10.0'
+gem 'rails-i18n'

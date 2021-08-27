@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles
+    @articles = @user.articles.page(params[:page]).per(6)
   end
 
   def index
@@ -24,17 +24,6 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
-  # def followings
-		# user = User.find(params[:user_id])
-		# @users = user.followings
-  # end
-
-
-  # def followers
-		# user = User.find(params[:user_id])
-		# @users = user.followers
-  # end
 
   private
 

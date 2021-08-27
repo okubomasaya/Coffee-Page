@@ -3,9 +3,8 @@ class ArticlesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
-    # @page = Article.all.page(params[:page]).per(2)
-    @tags = Hashtag.select('id', 'hashname').order('hashname ASC')
+    @articles = Article.order(created_at: :desc).page(params[:page]).per(6)
+    @tags = Hashtag.select('id', 'hashname').order('hashname ASC').page(params[:page]).per(5)
   end
 
   def show
