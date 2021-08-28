@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   get 'searches/search'
-  devise_for :users
+  
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
   root to: 'homes#top'
   get "home/about" => "homes#about"
 

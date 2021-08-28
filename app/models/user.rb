@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         #SNS認証
+         :omniauthable, omniauth_providers: %i[google_oauth2] 
 
   has_many :articles
 	has_many :favorites, dependent: :destroy
@@ -11,6 +13,15 @@ class User < ApplicationRecord
  
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :profile, length: { maximum: 200 }
+  
+  #DBにwhereで検索したオブジェクトが存在しなければ処理を行わず、あればuserオブジェクトにdo以降の処理入力
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
 
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

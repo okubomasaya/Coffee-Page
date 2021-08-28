@@ -82,3 +82,5 @@ group :production do
 end
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'rails-i18n'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'

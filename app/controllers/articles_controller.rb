@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(created_at: :desc).page(params[:page]).per(6)
-    @tags = Hashtag.select('id', 'hashname').order('hashname ASC').page(params[:page]).per(5)
+    @tags = Hashtag.select('id', 'hashname').order('hashname ASC').page(params[:page]).per(15)
   end
 
   def show
