@@ -10,8 +10,8 @@
   <div class="select">
     <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
   </div>
-  <div class="actions">
-    <%= f.submit '検索' %>
-  </div>
+   <%= button_tag type: "submit", class: "btn btn-default" do %>
+    <i class="fas fa-search"></i>
+   <% end %>
   </div>
   <% end %>

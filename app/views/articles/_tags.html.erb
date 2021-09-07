@@ -1,7 +1,9 @@
 <table class="table">
   <div class= "hash-name">
-    <% @tags.each do |tag| %>
-       <p><%= render_with_hashtags("##{tag.hashname}") %></p>
+    <% if @tags.present? %>
+      <% @tags.each do |tag| %>
+         <p><%= render_with_hashtags("##{tag.hashname}") %></p>
+      <% end %>
     <% end %>
   </div>
 </table>

@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
 		if @model == 'user'
 			@records = User.search_for(@content, @method)
 		else
-			@records = Article.search_for(@content, @method)
+			@records = Article.search_for(@content, @method).page(params[:page]).per(6)
 		end
 	end
 
