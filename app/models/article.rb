@@ -12,17 +12,17 @@ class Article < ApplicationRecord
 	  favorites.where(user_id: user.id).exists?
 	end
 
-	 #検索条件メソッド
+	 #検索条件メソッド あいまい検索のみに変更
   def self.search_for(content, method)
-    if method == 'perfect'
-      Article.where(title: content)
-    elsif method == 'forward'
-      Article.where('title LIKE ?', content+'%')
-    elsif method == 'backward'
-      Article.where('title LIKE ?', '%'+content)
-    else
+    # if method == 'perfect'
+    #   Article.where(title: content)
+    # elsif method == 'forward'
+    #   Article.where('title LIKE ?', content+'%')
+    # elsif method == 'backward'
+    #   Article.where('title LIKE ?', '%'+content)
+    # else
       Article.where('title LIKE ?', '%'+content+'%')
-    end
+    # end
   end
 
    #以下タグ関連
