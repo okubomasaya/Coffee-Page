@@ -31,7 +31,13 @@
         </div>
       <% end %>
       
+      
       <%= render "devise/shared/links" %>
+      
+      <%- if devise_mapping.omniauthable? %>
+          <%= button_to 'Google', user_google_oauth2_omniauth_authorize_path, class: "google-sign-in" %>
+      <% end %>
+      
     </div>
   </div>
 </div>
