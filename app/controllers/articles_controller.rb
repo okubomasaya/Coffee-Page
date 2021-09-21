@@ -56,13 +56,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-
   private
 
   def article_params
     params.require(:article).permit(:title, :image, :body,)
   end
-
 
   def ensure_correct_user
     @article = Article.find(params[:id])
@@ -70,6 +68,5 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     end
   end
-
 
 end
