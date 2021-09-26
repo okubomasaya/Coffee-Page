@@ -25,7 +25,7 @@
                 <strong><i class="fas fa-book"></i><span> <%= article.title %></span></strong>
               <% end %>
             </h5>
-            <p class="card-text">記事：<%= article.body.truncate(100) %></p>
+            <p class="card-text">記事：<%= article.body.truncate(100).html_safe %></p>
             <span><i class="fas fa-user"> By <%= article.user.name %></i></span>
           </div>
           <div class="card-footer">
