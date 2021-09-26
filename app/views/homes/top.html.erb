@@ -11,7 +11,7 @@
   <h2 class="d-flex justify-content-center">新着記事</h2>
   <div class="row justify-content-center align-items-center">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <% @articles.last(6).each do |article| %>
+      <% @articles.first(6).each do |article| %>
         <div class="col">
       <div class="card h-100">
           <div class="bd-placeholder-img card-img-top" >
