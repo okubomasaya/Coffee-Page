@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(window).on 'scroll', ->
+$(window).on 'scroll', -> 
     scrollHeight = $(document).height()
     scrollPosition = $(window).height() + $(window).scrollTop()
     if  (scrollHeight - scrollPosition) / scrollHeight <= 0.05
